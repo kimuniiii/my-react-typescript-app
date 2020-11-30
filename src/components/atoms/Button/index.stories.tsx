@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import React from 'react';
 import { BasicButton } from './index';
 
@@ -6,6 +7,12 @@ import { BasicButton } from './index';
 export default {
   title: 'atoms',
   component: 'Button',
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'iPhoneX',
+    },
+  },
   argTypes: {
     booleanFlag: {
       control: {
@@ -15,7 +22,7 @@ export default {
   },
 };
 
-export const Buttons = () => {
+export const Buttons: { (): JSX.Element } = () => {
   return (
     <BasicButton
       text={'Button'}
