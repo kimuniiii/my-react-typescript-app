@@ -1,7 +1,14 @@
 import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
 import { BasicButton } from './index';
+
+type Props = {
+  text: string;
+  onClick: () => void;
+  isDisabled: boolean;
+};
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -13,22 +20,14 @@ export default {
       defaultViewport: 'iPhoneX',
     },
   },
-  argTypes: {
-    booleanFlag: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
 };
 
-export const Buttons: { (): JSX.Element } = () => {
-  return (
-    <BasicButton
-      text={'Button'}
-      onClick={action('clicked')}
-      isPrimary={false}
-      isDisabled={false}
-    />
-  );
+const Template: Story<Props> = (args: Props) => <BasicButton {...args} />;
+
+export const Buttons = Template.bind({});
+
+Buttons.args = {
+  text: 'Button',
+  onClick: action('clicked'),
+  isDisabled: true,
 };

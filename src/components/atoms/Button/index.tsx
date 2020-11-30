@@ -1,36 +1,27 @@
 import React from 'react';
-import styled, { css, ThemeProvider } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 type Props = {
   text: string;
   onClick: () => void;
-  isPrimary: boolean;
   isDisabled: boolean;
 };
 
 export const BasicButton: React.FC<Props> = (props) => {
-  const { text, onClick, isPrimary, isDisabled } = props;
-  const theme = { isPrimary, isDisabled };
+  const { text, onClick, isDisabled } = props;
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <StyledButton onClick={onClick} isPrimary={false} isDisabled={false}>
-          {text}
-        </StyledButton>
-      </ThemeProvider>
+      <StyledButton onClick={onClick} isDisabled={isDisabled}>
+        {text}
+      </StyledButton>
     </>
   );
 };
 
-const StyledButton = styled.button<Pick<Props, 'isPrimary' | 'isDisabled'>>`
-  ${(theme) =>
-    theme.isPrimary &&
-    css`
-      color: 'red';
-    `};
-  ${(theme) =>
-    theme.isDisabled &&
+const StyledButton = styled.button<Pick<Props, 'isDisabled'>>`
+  ${(props) =>
+    props.isDisabled &&
     css`
       pointer-events: none;
-    `}
+    `};
 `;
