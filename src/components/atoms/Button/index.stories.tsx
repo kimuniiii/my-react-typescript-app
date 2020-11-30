@@ -17,6 +17,11 @@ export default {
 
 export const Buttons = () => {
   return (
-    <BasicButton text={'Button'} isPrimary={true} onClick={action('clicked')} />
+    <BasicButton
+      text={'Button'}
+      onClick={action('clicked')}
+      isPrimary={false}
+      isDisabled={true}
+    />
   );
 };
