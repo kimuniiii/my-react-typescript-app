@@ -21,7 +21,7 @@ export const Buttons = () => {
       text={'Button'}
       onClick={action('clicked')}
       isPrimary={false}
-      isDisabled={true}
+      isDisabled={false}
     />
   );
 };

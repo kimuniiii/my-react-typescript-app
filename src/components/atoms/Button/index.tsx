@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { css, ThemeProvider } from 'styled-components';
 
 type Props = {
   text: string;
@@ -14,7 +14,7 @@ export const BasicButton: React.FC<Props> = (props) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <StyledButton onClick={onClick} isPrimary={false}>
+        <StyledButton onClick={onClick} isPrimary={false} isDisabled={false}>
           {text}
         </StyledButton>
       </ThemeProvider>
@@ -22,6 +22,15 @@ export const BasicButton: React.FC<Props> = (props) => {
   );
 };
 
-const StyledButton = styled.button<Pick<Props, 'isPrimary'>>`
-  color: ${(theme) => (theme.isPrimary ? 'red' : 'blue')};
+const StyledButton = styled.button<Pick<Props, 'isPrimary' | 'isDisabled'>>`
+  ${(theme) =>
+    theme.isPrimary &&
+    css`
+      color: 'red';
+    `};
+  ${(theme) =>
+    theme.isDisabled &&
+    css`
+      pointer-events: none;
+    `}
 `;
