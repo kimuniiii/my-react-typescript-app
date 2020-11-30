@@ -3,17 +3,21 @@ import styled from 'styled-components';
 
 type Props = {
   text: string;
+  isPrimary: boolean;
   onClick: () => void;
 };
 
-export const BasicButton: React.FC<Props> = ({ text, onClick }) => {
+export const BasicButton: React.FC<Props> = (props) => {
+  const { text, isPrimary, onClick } = props;
   return (
     <>
-      <StyledButton onClick={onClick}>{text}</StyledButton>
+      <StyledButton isPrimary={isPrimary} onClick={onClick}>
+        {text}
+      </StyledButton>
     </>
   );
 };
 
-const StyledButton = styled.button`
-  color: red;
+const StyledButton = styled.button<Pick<Props, 'isPrimary'>>`
+  color: ${(props) => (props.isPrimary ? 'red' : 'blue')};
 `;

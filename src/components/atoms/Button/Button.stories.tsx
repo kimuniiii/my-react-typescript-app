@@ -16,5 +16,7 @@ export default {
 };
 
 export const Buttons = () => {
-  return <BasicButton onClick={action('clicked')} text={'Button'} />;
+  return (
+    <BasicButton text={'Button'} isPrimary={true} onClick={action('clicked')} />
+  );
 };
