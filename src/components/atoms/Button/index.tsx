@@ -19,9 +19,14 @@ export const BasicButton: React.FC<Props> = (props) => {
 };
 
 const StyledButton = styled.button<Pick<Props, 'isDisabled'>>`
+  background: #ffffff;
+  color: black;
+  border-color: black;
+  cursor: pointer;
   ${(props) =>
     props.isDisabled &&
     css`
+      opacity: 0.2;
       pointer-events: none;
     `};
 `;
