@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import { BasicButton } from './Button';
+import { BasicButton } from './index';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
