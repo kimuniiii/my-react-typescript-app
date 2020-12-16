@@ -22,6 +22,7 @@ const StyledButton = styled.button<Pick<Props, 'isDisabled'>>`
   background: #ffffff;
   color: black;
   border-color: black;
+  outline: none;
   cursor: pointer;
   ${(props) =>
     props.isDisabled &&
