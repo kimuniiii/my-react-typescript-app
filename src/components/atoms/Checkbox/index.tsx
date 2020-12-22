@@ -2,13 +2,31 @@ import React, { FC } from 'react';
 // import styled, { css } from 'styled-components';
 
 type Props = {
-  text: string;
+  name: string;
+  value: string;
+  label: string;
+  checked: boolean;
+  disabled: boolean;
 };
 
-export const Checkbox: FC<Props> = ({ text }) => {
+export const Checkbox: FC<Props> = ({
+  name = '',
+  value = '',
+  label = '',
+  checked,
+  disabled,
+}) => {
   return (
     <>
-      <input type="checkbox" name={text} value={text} />
+      <input
+        id="id"
+        type="checkbox"
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={disabled}
+      />
+      <label htmlFor="id">{label}</label>
     </>
   );
 };

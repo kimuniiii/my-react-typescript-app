@@ -5,9 +5,11 @@ import React from 'react';
 import { Checkbox } from './index';
 
 type Props = {
-  text: string;
-  onClick: () => void;
-  isDisabled: boolean;
+  name: string;
+  value: string;
+  label: string;
+  checked: boolean;
+  disabled: boolean;
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -27,5 +29,9 @@ const Template: Story<Props> = (args: Props) => <Checkbox {...args} />;
 export const Basic = Template.bind({});
 
 Basic.args = {
-  text: 'Checkbox',
+  name: 'Checkbox',
+  value: 'Checkbox',
+  label: 'Checkbox',
+  checked: true,
+  disabled: false,
 };
