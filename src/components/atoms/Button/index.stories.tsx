@@ -12,7 +12,7 @@ type Props = {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: 'atoms',
+  title: 'Buttons',
   component: 'Button',
   parameters: {
     viewport: {
@@ -24,9 +24,9 @@ export default {
 
 const Template: Story<Props> = (args: Props) => <BasicButton {...args} />;
 
-export const Buttons = Template.bind({});
+export const Basic = Template.bind({});
 
-Buttons.args = {
+Basic.args = {
   text: 'Button',
   onClick: action('clicked'),
   isDisabled: false,
