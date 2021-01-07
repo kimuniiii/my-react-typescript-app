@@ -6,7 +6,6 @@ type Props = {
   value: string;
   label: string;
   disabled: boolean;
-  onClick: () => void;
 };
 
 export const Checkbox: FC<Partial<Props>> = ({
@@ -14,7 +13,6 @@ export const Checkbox: FC<Partial<Props>> = ({
   value = '',
   label = '',
   disabled,
-  onClick,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
