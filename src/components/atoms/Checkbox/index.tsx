@@ -1,21 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 // import styled, { css } from 'styled-components';
 
 type Props = {
   name: string;
   value: string;
   label: string;
-  checked: boolean;
   disabled: boolean;
+  onClick: () => void;
 };
 
 export const Checkbox: FC<Partial<Props>> = ({
   name = '',
   value = '',
   label = '',
-  checked,
   disabled,
+  onClick,
 }) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = () => {
+    setIsChecked((prev) => !prev);
+  };
+
   return (
     <>
       <input
@@ -23,8 +29,9 @@ export const Checkbox: FC<Partial<Props>> = ({
         type="checkbox"
         name={name}
         value={value}
-        checked={checked}
+        checked={isChecked}
         disabled={disabled}
+        onClick={handleChange}
       />
       <label htmlFor="id">{label}</label>
     </>
