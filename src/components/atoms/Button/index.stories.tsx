@@ -28,6 +28,6 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   text: 'Button',
-  onClick: action('clicked'),
   isDisabled: false,
+  onClick: action('clicked'),
 };
