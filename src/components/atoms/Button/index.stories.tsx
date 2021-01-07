@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { BasicButton } from './index';
+import { Button } from './index';
 
 type Props = {
   text: string;
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-const Template: Story<Props> = (args: Props) => <BasicButton {...args} />;
+const Template: Story<Props> = (args: Props) => <Button {...args} />;
 
 export const Basic = Template.bind({});
 
