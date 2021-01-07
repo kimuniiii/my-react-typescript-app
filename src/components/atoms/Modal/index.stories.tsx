@@ -2,7 +2,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { BasicModal } from './index';
+import { Modal } from './index';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -16,6 +16,6 @@ export default {
   },
 };
 
-const Template: Story = () => <BasicModal />;
+const Template: Story = () => <Modal />;
 
 export const Basic = Template.bind({});

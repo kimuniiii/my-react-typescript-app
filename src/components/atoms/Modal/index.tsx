@@ -1,55 +1,67 @@
-import { Button } from 'components/atoms/Button';
-import { Checkbox } from 'components/atoms/Checkbox';
-import { TextInput } from 'components/atoms/TextInput';
-import { Toggle } from 'components/atoms/Toggle';
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import React, { useState, FC } from 'react';
+import styled, { css } from 'styled-components';
 
-export const BasicModal: FC = () => {
+export const Modal: FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleChange = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <>
-      <StyledModalBase>
-        <StyledInputContainer>
-          <div>名前</div>
-          <TextInput />
-        </StyledInputContainer>
-        <StyledCheckboxContainer>
-          <Checkbox label="男" />
-          <Checkbox label="女" />
-        </StyledCheckboxContainer>
-        <StyledToggleContainer>
-          <Toggle />
-        </StyledToggleContainer>
-        <StyledButtonContainer>
-          <Button
-            text="ボタン"
-            onClick={() => alert('クリック')}
-            isDisabled={false}
-          />
-        </StyledButtonContainer>
-        <StyledModalBody>モーダルテキスト</StyledModalBody>
-      </StyledModalBase>
+      <StyledOpenButton onClick={handleChange}>Open</StyledOpenButton>
+      {isOpen && (
+        <StyledModalOverlay isOpen={isOpen}>
+          <StyledModalBody>
+            <StyledCloseButton onClick={handleChange}>×</StyledCloseButton>
+            モーダルテキスト
+          </StyledModalBody>
+        </StyledModalOverlay>
+      )}
     </>
   );
 };
 
-const StyledModalBase = styled.div`
+const StyledModalOverlay = styled.div<{ isOpen: boolean }>`
+  /* 画面中央にモーダルを寄せる設定 */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* モーダル実装の際にはお決まりの実装 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  /* 初期表示 */
+  opacity: 0;
+  visibility: hidden;
+  ${(isOpen) =>
+    isOpen &&
+    css`
+      opacity: 1;
+      visibility: visible;
+    `};
 `;
-
-const StyledInputContainer = styled.div`
-  display: flex;
-`;
-
-const StyledCheckboxContainer = styled.div``;
-
-const StyledToggleContainer = styled.div``;
-
-const StyledButtonContainer = styled.div``;
 
 const StyledModalBody = styled.div`
-  color: red;
+  position: relative;
+  background-color: #ffffff;
+  padding: 30px 20px;
+`;
+
+const StyledOpenButton = styled.button`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const StyledCloseButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 `;
