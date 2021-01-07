@@ -10,7 +10,7 @@ export const Toggle = () => {
   return (
     <>
       <button onClick={handleChange}>Toggle Button</button>
-      <div>{isOpen ? 'ON ' : 'OFF'}</div>
+      {isOpen ? 'ON ' : 'OFF'}
     </>
   );
 };
