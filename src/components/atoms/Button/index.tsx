@@ -7,7 +7,7 @@ type Props = {
   isDisabled: boolean;
 };
 
-export const BasicButton: React.FC<Props> = (props) => {
+export const Button: React.FC<Props> = (props) => {
   const { text, onClick, isDisabled } = props;
   return (
     <>
