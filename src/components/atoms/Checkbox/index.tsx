@@ -9,7 +9,7 @@ type Props = {
   disabled: boolean;
 };
 
-export const Checkbox: FC<Props> = ({
+export const Checkbox: FC<Partial<Props>> = ({
   name = '',
   value = '',
   label = '',
