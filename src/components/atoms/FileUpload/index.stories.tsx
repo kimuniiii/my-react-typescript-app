@@ -1,8 +1,8 @@
-import { action } from '@storybook/addon-actions';
+// import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { FileUpload, Fileupload } from './index';
+import { FileUpload } from './index';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
