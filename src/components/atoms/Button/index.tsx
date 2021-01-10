@@ -7,11 +7,10 @@ type Props = {
   onClick: () => void;
 };
 
-export const Button: React.FC<Props> = (props) => {
-  const { text, isDisabled, onClick } = props;
+export const Button: React.FC<Props> = ({ text = '', isDisabled, onClick }) => {
   return (
     <>
-      <StyledButton onClick={onClick} isDisabled={isDisabled}>
+      <StyledButton isDisabled={isDisabled} onClick={onClick}>
         {text}
       </StyledButton>
     </>
@@ -19,7 +18,7 @@ export const Button: React.FC<Props> = (props) => {
 };
 
 const StyledButton = styled.button<Pick<Props, 'isDisabled'>>`
-  background: #ffffff;
+  background-color: #ffffff;
   color: #67c5ff;
   border: solid 2px #67c5ff;
   border-radius: 3px;
@@ -30,6 +29,9 @@ const StyledButton = styled.button<Pick<Props, 'isDisabled'>>`
   &:hover {
     color: #ffffff;
     background-color: #67c5ff;
+  }
+  &:active {
+    background-color: #1a4d80;
   }
   ${(props) =>
     props.isDisabled &&

@@ -6,8 +6,8 @@ import { Button } from './index';
 
 type Props = {
   text: string;
-  onClick: () => void;
   isDisabled: boolean;
+  onClick: () => void;
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
