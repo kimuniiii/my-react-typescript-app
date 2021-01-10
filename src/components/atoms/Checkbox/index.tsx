@@ -1,37 +1,43 @@
-import React, { FC, useState } from 'react';
-// import styled, { css } from 'styled-components';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
 type Props = {
   name: string;
   value: string;
   label: string;
+  checked: boolean;
   disabled: boolean;
+  onClick: () => void;
 };
 
 export const Checkbox: FC<Partial<Props>> = ({
   name = '',
   value = '',
   label = '',
+  checked,
   disabled,
+  onClick,
 }) => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleChange = () => {
-    setIsChecked((prev) => !prev);
-  };
-
   return (
     <>
-      <input
+      <StyledInput
         id="id"
         type="checkbox"
         name={name}
         value={value}
-        checked={isChecked}
+        checked={checked}
         disabled={disabled}
-        onClick={handleChange}
+        onClick={onClick}
       />
-      <label htmlFor="id">{label}</label>
+      <StyledLabel htmlFor="id">{label}</StyledLabel>
     </>
   );
 };
+
+const StyledInput = styled.input`
+  border-radius: 50%;
+`;
+
+const StyledLabel = styled.label`
+  color: red;
+`;

@@ -1,4 +1,4 @@
-// import { action } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
@@ -10,6 +10,7 @@ type Props = {
   label: string;
   checked: boolean;
   disabled: boolean;
+  onClick: () => void;
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -34,4 +35,5 @@ Basic.args = {
   label: 'Checkbox',
   checked: true,
   disabled: false,
+  onClick: action('clicked'),
 };
