@@ -24,13 +24,12 @@ export default {
 
 const Template: Story<Props> = (args: Props) => {
   const [isOn, setIsOn] = useState(false);
-  return (
-    <Toggle
-      id="toggle"
-      isChecked={isOn}
-      onChange={() => setIsOn((prevState) => !prevState)}
-    />
-  );
+
+  const handleChange = () => {
+    setIsOn((prev) => !prev);
+  };
+
+  return <Toggle id="id" isChecked={isOn} onChange={handleChange} />;
 };
 
 export const Basic = Template.bind({});
