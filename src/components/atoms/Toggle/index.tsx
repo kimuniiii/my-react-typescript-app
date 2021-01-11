@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 
 type Props = {
   id: string;
-  isChecked: boolean;
-  onChange: () => void;
+  isChecked?: boolean;
+  onChange?: () => void;
 };
 
 export const Toggle = ({ id, isChecked, onChange }: Props) => {

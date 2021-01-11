@@ -33,3 +33,7 @@ const Template: Story<Props> = (args: Props) => {
 };
 
 export const Basic = Template.bind({});
+
+Basic.args = {
+  id: 'id',
+};
