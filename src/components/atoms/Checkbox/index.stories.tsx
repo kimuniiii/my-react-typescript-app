@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react/types-6-0';
-import React from 'react';
+import React, { useState } from 'react';
 import { Checkbox } from './index';
 
 type Props = {
@@ -25,7 +25,24 @@ export default {
   },
 };
 
-const Template: Story<Props> = (args: Props) => <Checkbox {...args} />;
+const Template: Story<Props> = (args: Props) => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+
+  return (
+    <Checkbox
+      {...args}
+      name="Checkbox"
+      value="Checkbox"
+      label="Checkbox"
+      checked={checked}
+      onClick={handleChange}
+    />
+  );
+};
 
 export const Basic = Template.bind({});
 
@@ -33,7 +50,6 @@ Basic.args = {
   name: 'Checkbox',
   value: 'Checkbox',
   label: 'Checkbox',
-  checked: true,
   disabled: false,
   onClick: action('clicked'),
 };

@@ -34,9 +34,7 @@ export const Checkbox: FC<Partial<Props>> = ({
   );
 };
 
-const StyledInput = styled.input`
-  border-radius: 50%;
-`;
+const StyledInput = styled.input``;
 
 const StyledLabel = styled.label`
   color: red;
