@@ -14,6 +14,7 @@ type Props = {
   defaultOptionId?: OptionId;
   defaultOptionName?: OptionName;
   optionsList: SelectOption[];
+  setValueResult?: (value: string) => void;
 };
 
 export const SelectBox = ({
@@ -21,13 +22,11 @@ export const SelectBox = ({
   defaultOptionId = '',
   defaultOptionName = '-',
   optionsList,
+  setValueResult,
 }: Props) => {
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedOptionId, setSelectedOptionId] = useState<OptionId>(
     defaultOptionId,
-  );
-  const [selectedOptionName, setSelectedOptionName] = useState<OptionName>(
-    defaultOptionName,
   );
 
   /**
@@ -49,10 +48,14 @@ export const SelectBox = ({
     optionName: SelectOption['name'],
   ) => {
     setSelectedOptionId(optionId);
-    setSelectedOptionName(optionName);
     setShowOptionList((prev) => !prev);
+
+    if (setValueResult !== undefined) {
+      setValueResult(optionName);
+    }
   };
 
+  // find : 提供されたテスト関数を満たす配列内の最初の要素の値を返す
   const selectedOption = optionsList?.find(
     (option) => option.id === selectedOptionId,
   );
@@ -63,7 +66,9 @@ export const SelectBox = ({
         {selectedOption === undefined ? (
           <span className="selected-name">{placeholder}</span>
         ) : (
-          <span className="selected-name">{selectedOptionName}</span>
+          <span className="selected-name">
+            {selectedOption.name === '' ? placeholder : selectedOption.name}
+          </span>
         )}
       </StyledSelectedOption>
       {showOptionList && (
