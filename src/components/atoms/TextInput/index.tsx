@@ -53,4 +53,8 @@ const StyledInput = styled.input`
   font-size: 16px;
   padding: 8px;
   font-weight: normal;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
