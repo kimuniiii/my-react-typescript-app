@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 type Props = {
   items: { original: string; thumbnail: string }[];
@@ -21,5 +22,5 @@ const images = [
 ];
 
 export const MyGallery: FC<Props> = () => {
-  return <ImageGallery items={images} />;
+  return <ImageGallery items={images} showIndex={true} />;
 };

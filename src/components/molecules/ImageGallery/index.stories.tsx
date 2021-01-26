@@ -1,8 +1,7 @@
-// import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { MyGallery } from './index';
 import { Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { MyGallery } from './index';
 
 type Props = {
   items: { original: string; thumbnail: string }[];
