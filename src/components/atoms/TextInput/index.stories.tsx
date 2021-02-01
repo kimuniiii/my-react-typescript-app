@@ -1,4 +1,3 @@
-// import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Story } from '@storybook/react/types-6-0';
 import React, { useState, ChangeEvent } from 'react';
