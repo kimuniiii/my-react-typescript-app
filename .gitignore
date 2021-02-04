@@ -8,6 +8,9 @@
 # eslint
 .eslintcache
 
+# vscode
+snipsnap
+
 # testing
 /coverage
 
