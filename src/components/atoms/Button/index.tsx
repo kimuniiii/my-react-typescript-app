@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components';
 type Props = {
   text: string;
   isDisabled: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
-export const Button: React.FC<Props> = ({ text = '', isDisabled, onClick }) => {
+export const Button: React.FC<Props> = ({ text, isDisabled, onClick }) => {
   return (
     <>
       <StyledButton isDisabled={isDisabled} onClick={onClick}>
@@ -33,8 +33,8 @@ const StyledButton = styled.button<Pick<Props, 'isDisabled'>>`
   &:active {
     background-color: #1a4d80;
   }
-  ${(props) =>
-    props.isDisabled &&
+  ${({ isDisabled }) =>
+    isDisabled &&
     css`
       opacity: 0.2;
       pointer-events: none;
