@@ -1,5 +1,6 @@
+import { css } from '@emotion/react';
 import React, { useState, FC } from 'react';
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Modal: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export const Modal: FC = () => {
         <StyledModalOverlay isOpen={isOpen}>
           <StyledModalBody>
             <StyledCloseButton onClick={handleChange}>×</StyledCloseButton>
-            モーダルテキスト
+            モーダルテキストを変更します！
           </StyledModalBody>
         </StyledModalOverlay>
       )}
